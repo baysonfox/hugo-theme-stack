@@ -1,1 +1,4 @@
 /* Place your custom SCSS in HUGO_SITE_FOLDER/assets/scss/custom.scss */
+.site-logo {
+    filter: var(--logo-filter);
+}
