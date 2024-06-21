@@ -1,6 +1,6 @@
-{{ $sass := resources.Get "scss/highlight.scss" }}
-{{ $style := $sass | resources.ToCSS | postCSS | resources.Fingerprint "sha256" | resources.PostProcess }}
-<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+{{with resources.Get "scss/highlight.scss" | toCSS | postCSS}}
+<style>{{ .Content | safeCSS }}</style>
+{{ end }}
 <article class="{{ if .Params.image }}has-image {{ end }}main-article">
     {{ partial "article/components/header" . }}
 
