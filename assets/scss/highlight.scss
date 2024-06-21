@@ -1,0 +1,7 @@
+[data-scheme="dark"] {
+    @import "partials/highlight/dark.scss";
+}
+
+[data-scheme="light"] {
+    @import "partials/highlight/light.scss";
+}
