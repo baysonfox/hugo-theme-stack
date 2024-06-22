@@ -1,4 +1,4 @@
-/*!
+/*
 *   Hugo Theme Stack
 *
 *   @author: Jimmy Cai
