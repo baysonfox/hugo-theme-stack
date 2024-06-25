@@ -1,6 +1,3 @@
-{{with resources.Get "scss/highlight.scss" | toCSS | postCSS}}
-<style>{{ .Content | safeCSS }}</style>
-{{ end }}
 <article class="{{ if .Params.image }}has-image {{ end }}main-article">
     {{ partial "article/components/header" . }}
 

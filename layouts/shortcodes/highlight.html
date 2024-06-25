@@ -1,0 +1,9 @@
+<!-- This is a DIRTY HACK -->
+<!-- Rewriting highlight shortcode for css loading only when necessary-->
+{{if not (.Scratch.Get "hasCode")}}
+{{with resources.Get "scss/highlight.scss" | toCSS | postCSS}}
+<style>{{ .Content | safeCSS }}</style>
+{{ end }}
+{{.Scratch.Set "hasCode" true}}
+{{ end }}
+{{ if len .Params | eq 2 }}{{ highlight (trim .Inner "\n\r") (.Get 0) (.Get 1) }}{{ else }}{{ highlight (trim .Inner "\n\r") (.Get 0) "" }}{{ end }}
