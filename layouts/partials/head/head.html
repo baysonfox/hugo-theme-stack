@@ -19,7 +19,8 @@
 {{- end -}}
 
 {{ with .Site.Params.favicon }}
-    <link rel="preload shortcut icon" href="{{ . | relURL }}" />
+    <link rel="preload" href="{{ . | relURL }}" as="image" />
+    <link rel="shortcut icon" href="{{ . | relURL }}" />
 {{ end }}
 
 {{- template "_internal/google_analytics.html" . -}}
