@@ -1,0 +1,26 @@
+{{if not (.Page.Scratch.Get "hasChat")}}
+{{with resources.Get "scss/chat.scss" | toCSS | postCSS}}
+<style>{{ .Content | safeCSS }}</style>
+{{ end }}
+{{.Page.Scratch.Set "hasChat" true}}
+{{ end }}
+
+{{ if eq (.Get "position") "left" }}
+<div class="chat --other">
+    <div class="chat__inner">
+        <div class="chat__meta">{{ .Get "name" }}&nbsp;&nbsp;&nbsp;{{ .Get "timestamp" }}</div>
+        <div class="chat__text">
+            {{ .Inner }}
+        </div>
+    </div>
+</div>
+{{ else if eq (.Get "position") "right" }}
+<div class="chat --self">
+    <div class="chat__inner">
+        <div class="chat__meta" style="text-align: right;">{{ .Get "timestamp" }}&nbsp;&nbsp;&nbsp;{{ .Get "name" }}</div>
+        <div class="chat__text">
+            {{ .Inner }}
+        </div>
+    </div>
+</div>
+{{ end }}
