@@ -5,7 +5,7 @@
 
     {{ partial "article/components/footer" . }}
 
-    {{ if or .Params.math .Site.Params.article.math }}
+    {{ if findRE "(?s)(\\\\\\[.*?\\\\\\])|(\\\\\\(.*?\\\\\\))" .Content }}
         {{ partialCached "article/components/math.html" . }}
     {{ end }}
 </article>
